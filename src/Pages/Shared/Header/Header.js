@@ -15,7 +15,7 @@ const Header = () => {
         <>
   <Navbar collapseOnSelect expand="lg" className="navBg" sticky="top" variant="dark">
     <Container>
-    <Navbar.Brand as={NavLink} to="/">Homes</Navbar.Brand>
+    <Navbar.Brand as={NavLink} to="/">Artistic Glow</Navbar.Brand>
      <Navbar.Toggle/>
      <Navbar.Collapse className="justify-content-end">
        <Nav.Link as={NavLink} exact to="/home" activeStyle={active} className="navMenu">  Home
