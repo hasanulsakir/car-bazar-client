@@ -57,7 +57,7 @@ function Dashboard(props) {
   const [loadUser, setloadUser] = React.useState({});
 
   React.useEffect(() => {
-    fetch(`http://localhost:5000/user/${user.email}`)
+    fetch(`https://artisticglow.herokuapp.com/user/${user.email}`)
       .then(res => res.json())
       .then(data => {
       setloadUser(data[0])

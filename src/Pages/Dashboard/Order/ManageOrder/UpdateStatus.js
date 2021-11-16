@@ -6,7 +6,7 @@ const UpdateStatus = () => {
     const history = useHistory();
     const { id } = useParams()
     const [order, setOrders] = React.useState([])
-    const url = `http://localhost:5000/order/${id}`
+    const url = `https://artisticglow.herokuapp.com/order/${id}`
     React.useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -25,7 +25,7 @@ const UpdateStatus = () => {
         setOrders(updateOrder)
     }
  const handleUpdateOrder = e => {
-     const url = `http://localhost:5000/order/${id}`;
+     const url = `https://artisticglow.herokuapp.com/order/${id}`;
      console.log(url)
         fetch(url, {
             method: 'PUT',
@@ -38,7 +38,7 @@ const UpdateStatus = () => {
             .then(data => {
                 if (data.matchedCount > 0) {
                     window.alert('Data Updated!')
-                    history.push('/dashboard/managestatus')
+                    history.push('dashboard/manageorder')
                }
             })
         e.preventDefault();

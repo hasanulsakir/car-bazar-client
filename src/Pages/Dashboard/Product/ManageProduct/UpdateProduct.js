@@ -6,14 +6,14 @@ const UpdateProduct = () => {
  const history = useHistory();
     const { ID } = useParams();
     const [product, setProduct] = useState({});
-    const url = `http://localhost:5000/products/${ID}`
+    const url = `https://artisticglow.herokuapp.com/products/${ID}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
         .then(data=>setProduct(data))
     }, [url]);
     const handleUpdateService = e => {
-        const url = `http://localhost:5000/products/${ID}`
+        const url = `https://artisticglow.herokuapp.com/products/${ID}`
         fetch(url, {
             method: 'PUT',
             headers: {

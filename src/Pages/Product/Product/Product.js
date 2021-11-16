@@ -14,7 +14,7 @@ const Product = () => {
     const [Products, setProduct] = useState([]);
    
 useEffect(() => {
-    fetch('http://localhost:5000/products/')
+    fetch('https://artisticglow.herokuapp.com/products/')
         .then(res => res.json())
         .then(data => {
             const reverseOb = data.reverse()

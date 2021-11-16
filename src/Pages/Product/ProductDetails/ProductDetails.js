@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const ProductDetails = () => {
     const { ID } = useParams();
     const [product, setProduct] = useState({});
-    const url = `http://localhost:5000/products/${ID}`
+    const url = `https://artisticglow.herokuapp.com/products/${ID}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

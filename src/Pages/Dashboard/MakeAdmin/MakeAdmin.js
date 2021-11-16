@@ -20,7 +20,7 @@ const MakeAdmin = () => {
 }
     const handleAdmin = e => {
         const email = admin;
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://artisticglow.herokuapp.com/users/admin', {
             method: "PUT",
             headers: {
                 'content-type':'application/json'

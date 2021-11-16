@@ -10,7 +10,7 @@ const ManageProduct = () => {
     const [Products, setProduct] = useState([]);
    
 useEffect(() => {
-    fetch('http://localhost:5000/products/')
+    fetch('https://artisticglow.herokuapp.com/products/')
         .then(res => res.json())
         .then(data => {
             const reverseOb = data.reverse()
@@ -22,7 +22,7 @@ useEffect(() => {
 const handleDelete = id => {
          const confirm = window.confirm('Are You Confirm, Want To Delete?');
          if (confirm) {
-             const uri = `http://localhost:5000/products/${id}`
+             const uri = `https://artisticglow.herokuapp.com/products/${id}`
     fetch(uri, {
       method:'delete'
     })

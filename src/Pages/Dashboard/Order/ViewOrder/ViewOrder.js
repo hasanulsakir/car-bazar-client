@@ -15,7 +15,7 @@ const ViewOrder = () => {
     const { user } = useAuth();
     let id = 1;
 const [orders, setOrders] = React.useState([])
-    const url = `http://localhost:5000/orders/${user?.email}`
+    const url = `https://artisticglow.herokuapp.com/orders/${user?.email}`
     React.useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -32,7 +32,7 @@ const [orders, setOrders] = React.useState([])
     const handleDelete = id => {
          const confirm = window.confirm('Are You Confirm, Want To Delete?');
          if (confirm) {
-             const uri = `http://localhost:5000/order/${id}`
+             const uri = `https://artisticglow.herokuapp.com/order/${id}`
     fetch(uri, {
       method:'delete'
     })

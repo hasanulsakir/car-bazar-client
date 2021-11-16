@@ -16,7 +16,7 @@ const Ratings = () => {
  // last Rating Status
  const [rating, setRating] = useState ({});  
  const [previousRating, setpreviousRating] = useState({})
-    const url = `http://localhost:5000/rating/${user.email}`
+    const url = `https://artisticglow.herokuapp.com/rating/${user.email}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -41,7 +41,7 @@ const Ratings = () => {
     data.star = value;
     const handleRating = e => {
         setSuccess(false)
-fetch('http://localhost:5000/rating', {
+fetch('https://artisticglow.herokuapp.com/rating', {
             method: "PUT",
             headers: {
                 'content-type':'application/json'

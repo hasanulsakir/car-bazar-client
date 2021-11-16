@@ -9,7 +9,7 @@ const Review = () => {
       const [review, setReview] = useState([]);
    
 useEffect(() => {
-    fetch('http://localhost:5000/rating')
+    fetch('https://artisticglow.herokuapp.com/rating')
         .then(res => res.json())
         .then(data => {
             const reverseOb = data.reverse()

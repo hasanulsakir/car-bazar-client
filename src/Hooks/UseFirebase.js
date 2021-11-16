@@ -56,7 +56,7 @@ const UseFirebase = () => {
     
     const saveUser = (email, displayName) => {
         const user = { email, displayName };
-        axios.post('http://localhost:5000/users', user)
+        axios.post('https://artisticglow.herokuapp.com/users', user)
         .then()
     }
     
@@ -118,7 +118,7 @@ const UseFirebase = () => {
 
     const setLoginUser = (email, displayName) => {
         const user = { email, displayName };
-       axios.put('http://localhost:5000/users', user)
+       axios.put('https://artisticglow.herokuapp.com/users', user)
         .then()
     }
   
@@ -138,7 +138,7 @@ const UseFirebase = () => {
 },[auth])
 
 useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://artisticglow.herokuapp.com/users/${user.email}`)
         .then(res => res.json())
         .then(data => {
         setAdmin(data?.admin)

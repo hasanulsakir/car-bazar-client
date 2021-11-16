@@ -22,7 +22,7 @@ const AddProduct = () => {
 }
     const handleProduct = e => {
         setSuccess(false)
-fetch('http://localhost:5000/products', {
+fetch('https://artisticglow.herokuapp.com/products', {
             method: "POST",
             headers: {
                 'content-type':'application/json'

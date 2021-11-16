@@ -15,7 +15,7 @@ const PlaceOrder = () => {
     
     // product fetch 
     const [product, setProduct] = useState({});
-    const url = `http://localhost:5000/products/${orderID}`
+    const url = `https://artisticglow.herokuapp.com/products/${orderID}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -57,7 +57,7 @@ console.log(data);
         setSuccess(false)
 if(data.customerName !==  "" &&  data.customerEmail !== "" && copyObject !== "" && data.product !== undefined){
     
-fetch('http://localhost:5000/order', {
+fetch('https://artisticglow.herokuapp.com/order', {
             method: "POST",
             headers: {
                 'content-type':'application/json'

@@ -16,7 +16,7 @@ const ManageRating = () => {
 // get rating 
     let id = 1;
 const [previousRating, setpreviousRating] = useState([])
-    const url = `http://localhost:5000/rating/`
+    const url = `https://artisticglow.herokuapp.com/rating/`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -32,7 +32,7 @@ const [previousRating, setpreviousRating] = useState([])
     const handleDelete = id => {
          const confirm = window.confirm('Are You Confirm, Want To Delete?');
          if (confirm) {
-             const uri = `http://localhost:5000/rating/${id}`
+             const uri = `https://artisticglow.herokuapp.com/rating/${id}`
     fetch(uri, {
       method:'delete'
     })
