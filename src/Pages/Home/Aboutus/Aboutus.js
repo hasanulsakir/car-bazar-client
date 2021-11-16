@@ -11,7 +11,7 @@ const Aboutus = () => {
                         <Col lg={6} md={6} xs={12} className="mt-5  ">
                             <img
                                 src={aboutUs}
-                                class="rounded mx-auto d-block shadow-lg"
+                                className="rounded mx-auto d-block shadow-lg"
                                 alt="About Us" width="100%" />
                           
                         </Col>

@@ -1,7 +1,7 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useState } from 'react';
 import { Form,  Spinner } from 'react-bootstrap';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../../Hooks/useAuth';
 
@@ -9,7 +9,9 @@ const Signup = () => {
 
   const {error, RegisterUser,isLoading } = useAuth();
    
+   const location = useLocation();
     const history = useHistory();
+  //   const redirect_url = location.state?.from || '/';
    
 
     const [signUpData, setSignUnData,user] = useState({});
@@ -26,8 +28,13 @@ const Signup = () => {
             alert('Password Not Match!');
         } else {
             
-         RegisterUser(signUpData.email,signUpData.password,signUpData.name,history)
-       
+          RegisterUser(signUpData.email, signUpData.password, signUpData.name,location, history)
+            // .then((result) => {
+              
+            //     if (result == !error) {
+            //          history.push(redirect_url)
+            //        }
+            //   })
 }
 
         e.preventDefault();

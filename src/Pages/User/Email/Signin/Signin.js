@@ -13,6 +13,7 @@ const Signin = () => {
     const location = useLocation();
     const history = useHistory();
     const redirect_url = location.state?.from || '/';
+    
  
  const [signInData, setsignInData] = useState({});
     const handleOnChange = e => {
@@ -26,7 +27,9 @@ const Signin = () => {
         LoginUser(signInData.email,signInData.password)
               .then((result) => {
               
-                   history.push(redirect_url)
+                if (result == !error) {
+                     history.push(redirect_url)
+                   }
               })
       
               

@@ -13,7 +13,7 @@ useEffect(() => {
         .then(res => res.json())
         .then(data => {
             const reverseOb = data.reverse()
-            setReview(reverseOb);
+            setReview(reverseOb.slice(0,8));
     })
 }, []);
 

@@ -14,7 +14,7 @@ const UseFirebase = () => {
     const auth = getAuth();
 
 //createUserWithEmailAndPassword
-    const RegisterUser = (email,password,name,history) => {
+    const RegisterUser = (email,password,name,location,history) => {
         setIsLoading(true)
          createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
@@ -29,21 +29,30 @@ const UseFirebase = () => {
 
                 updateProfile(auth.currentUser, {
                     displayName: name
-                }).then(() => {
-                      // Profile updated!
-                    // ...
+                }).then((result) => {
+                    alert('Success Register');
+                    if (result == !error) {
+                    // const destination = ;
+                   history.push(location?.state?.from || '/')
+               }
                 }).catch((error) => {
-                      // An error occurred
-                    // ...
+                      SetError(error.message);
                 });
     // Signed in 
     // const user = userCredential.user;
-    // ...
-                alert('success Register');
+                // ... 
                 // history.replace('/')
+                alert('success Register');
+               console.log(Credential)
+
+                // if (userCredential == !error) {
+                //     const destination = location?.state?.from || '/';
+                //    history.push(destination)
+            //    }
+                
   })
             .catch(error => {
-                console.log(error.message);
+                // console.log(error.message);
                 SetError(error.message);
             })
             .finally(() => {
@@ -69,7 +78,7 @@ const UseFirebase = () => {
         return signInWithEmailAndPassword(auth, email, password)
            
             .catch(error => {
-                console.log(error.message);
+                // console.log(error.message);
                 SetError(error.message);
             })
             .finally(() => {
