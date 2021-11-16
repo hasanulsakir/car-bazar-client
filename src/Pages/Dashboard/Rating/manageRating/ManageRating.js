@@ -21,8 +21,9 @@ const [previousRating, setpreviousRating] = useState([])
         fetch(url)
             .then(res => res.json())
             .then(data => {
-              
-            setpreviousRating(data);
+              const reverseOb = data.reverse()
+            setpreviousRating(reverseOb);
+            
         })
     }, [url]);
 

@@ -20,8 +20,9 @@ const [orders, setOrders] = React.useState([])
         fetch(url)
             .then(res => res.json())
             .then(data => {
-              
-            setOrders(data);
+              const reverseOb = data.reverse()
+            setOrders(reverseOb);
+            
         })
     }, [url]);
 
