@@ -6,7 +6,9 @@
 .pnp.js
 .env.local
 # firebase Config
-firebase.config.js
+firebase.confiq.js
+#firebase Init
+
 firebase.init.js
 
 

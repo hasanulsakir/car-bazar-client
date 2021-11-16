@@ -8,13 +8,5 @@ const firebaseConfig = {
 };
 
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCe_ji-bz1x1O7sCuyUheeC7iS04NnAmMU",
-//   authDomain: "artisticglow2021.firebaseapp.com",
-//   projectId: "artisticglow2021",
-//   storageBucket: "artisticglow2021.appspot.com",
-//   messagingSenderId: "222141126366",
-//   appId: "1:222141126366:web:60127242f3c0e067b2144f"
-// };
 
 export default firebaseConfig;
