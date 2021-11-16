@@ -37,8 +37,8 @@ fetch('https://artisticglow.herokuapp.com/products', {
         })
 
 
-          console.log(Product)
-
+        //   console.log(Product)
+        setProduct();
         e.preventDefault();
        
     }

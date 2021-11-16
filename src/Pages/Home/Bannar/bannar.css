@@ -2,5 +2,8 @@
   max-height: auto;
 }
 .bannarImg {
-  max-height: 550px;
+  max-height: 450px;
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom;
 }

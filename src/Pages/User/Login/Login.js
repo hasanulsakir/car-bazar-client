@@ -8,7 +8,6 @@ import {  useHistory, useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 
-
 const Login = () => {
     const { error, signInUsingGoogle, signInUsingGithub } = useAuth();
     const location = useLocation();
@@ -23,6 +22,8 @@ const Login = () => {
         //    history.push(redirect_url)
         //     })
     }
+     
+    // console.log(pageBg)
     return (
         <div>
             <div className="p-5 my-5 w-75 mx-auto bg-light shadow">

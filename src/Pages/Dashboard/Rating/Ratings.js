@@ -51,10 +51,12 @@ fetch('https://artisticglow.herokuapp.com/rating', {
             .then(res => res.json())
     .then(data => {
         if (data.upsertedId) {
-                 setSuccess(true);
+          setSuccess(true);
+          window.location.reload();
             }
         else if(data.modifiedCount > 0){
-                alert('Updated Successfully')
+          alert('Updated Successfully')
+          
             }
         })
 

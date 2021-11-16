@@ -10,8 +10,8 @@ import useAuth from '../../../../Hooks/useAuth';
 const Signin = () => {
 
   const { error, LoginUser} = useAuth();
-    const location = useLocation();
-    const history = useHistory();
+  const location = useLocation();
+  const history = useHistory();
     const redirect_url = location.state?.from || '/';
     
  

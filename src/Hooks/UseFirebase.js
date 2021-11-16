@@ -30,20 +30,16 @@ const UseFirebase = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then((result) => {
-                    alert('Success Register');
-                    if (result == !error) {
-                    // const destination = ;
-                   history.push(location?.state?.from || '/')
-               }
+                   
                 }).catch((error) => {
                       SetError(error.message);
                 });
     // Signed in 
     // const user = userCredential.user;
                 // ... 
-                // history.replace('/')
                 alert('success Register');
-               console.log(Credential)
+                history.replace('/')
+            //    console.log(Credential)
 
                 // if (userCredential == !error) {
                 //     const destination = location?.state?.from || '/';

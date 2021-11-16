@@ -36,7 +36,7 @@ const Signup = () => {
             //        }
             //   })
 }
-
+setSignUnData()
         e.preventDefault();
 }
 
