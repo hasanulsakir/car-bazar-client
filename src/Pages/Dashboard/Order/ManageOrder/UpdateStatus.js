@@ -38,7 +38,7 @@ const UpdateStatus = () => {
             .then(data => {
                 if (data.matchedCount > 0) {
                     window.alert('Data Updated!')
-                    history.push('dashboard/manageorder')
+                    history.push('/dashboard/manageorder')
                }
             })
         e.preventDefault();
