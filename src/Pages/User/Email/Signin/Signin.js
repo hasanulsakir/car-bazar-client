@@ -6,14 +6,15 @@ import { Form } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../../Hooks/useAuth';
-
+import Alert from '@mui/material/Alert';
+import CheckIcon from '@mui/icons-material/Check';
 const Signin = () => {
 
   const { error, LoginUser} = useAuth();
   const location = useLocation();
   const history = useHistory();
     const redirect_url = location.state?.from || '/';
-    
+    const [success, setSuccess] = useState(false)
  
  const [signInData, setsignInData] = useState({});
     const handleOnChange = e => {
@@ -28,7 +29,9 @@ const Signin = () => {
               .then((result) => {
               
                 if (result == !error) {
-                     history.push(redirect_url)
+                  alert('Login Success')
+                  setSuccess(true);
+                  history.push(redirect_url)
                    }
               })
       
@@ -69,6 +72,12 @@ const Signin = () => {
   </Form.Floating>
 
             </Form>
+           {
+    success && <div className="mt-3"><Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
+  Product Add SuccessFully
+</Alert></div>
+}
+            
              <p>{error}</p>
                 </div>
 

@@ -38,7 +38,7 @@ useEffect(() => {
       
                     <Col
                     key={product._id}
-                    className="p-2">
+                    className="p-md-2 p-lg-2 px-sm-5">
         <div className="rounded-5 border-0 shadow">
      <Card >
   <Card.Img variant="top" height="200px" src={product.productImageUrl} />
