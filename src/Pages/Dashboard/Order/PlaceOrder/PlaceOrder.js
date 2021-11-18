@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Form, Row, Spinner } from 'react-bootstrap';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import useAuth from '../../../../Hooks/useAuth';
 import Footer from '../../../Shared/Footer/Footer';
 import Header from '../../../Shared/Header/Header';
@@ -12,7 +12,7 @@ import CheckIcon from '@mui/icons-material/Check';
 const PlaceOrder = () => {
     const { orderID } = useParams();
     const { isLoading, user } = useAuth();
-    
+    const history = useHistory();
     // product fetch 
     const [product, setProduct] = useState({});
     const url = `https://artisticglow.herokuapp.com/products/${orderID}`
@@ -33,6 +33,7 @@ const PlaceOrder = () => {
 
      
     
+    const [error, setError] = useState(false);
     const [success, setSuccess] = useState(false);
     const [orders, setOrders] = useState({});
     const handleOnblur = e => {
@@ -42,7 +43,7 @@ const PlaceOrder = () => {
         
         newOrder[field] = value;
         setOrders(newOrder);
-        console.log(newOrder)
+        // console.log(newOrder)
     }
 
     // place an order
@@ -52,25 +53,29 @@ const PlaceOrder = () => {
     data.customerEmail = user?.email;
     data.orderStatus = "Pending";
     data.product = product;
-console.log(data);
+    // console.log(data)
+// console.log(data);
      const handleProduct = e => {
         setSuccess(false)
-if(data.customerName !==  "" &&  data.customerEmail !== "" && copyObject !== "" && data.product !== undefined){
-    
-fetch('https://artisticglow.herokuapp.com/order', {
-            method: "POST",
-            headers: {
-                'content-type':'application/json'
-            },
-            body: JSON.stringify(data),
-        })
-            .then(res => res.json())
-    .then(data => {
-         console.log(data)
+         if (data.customerName !== "" && data.customerEmail !== "" && copyObject !== "" && data.product !== undefined) {
+             fetch('https://artisticglow.herokuapp.com/order', {
+                 method: "POST",
+                 headers: {
+                     'content-type': 'application/json'
+                 },
+                 body: JSON.stringify(data),
+             })
+             .then(res => res.json())
+                 .then(data => {
+                         //  console.log(data)
         if (data.insertedId) {
             setSuccess(true);
             setProduct()
             // setOrders()
+            history.push('/paymentmethod')
+            }
+        else {
+            setError(true)
             }
         })
 } else {
@@ -112,10 +117,11 @@ fetch('https://artisticglow.herokuapp.com/order', {
                         <Form.Control
                             id="name"
                             type="text"
-                            value={user.displayName}
+                            value={user?.displayName}
                             name="customerName"
                             onChange={handleOnblur}
                             placeholder="Enter Name"
+                            required
                         />
                         <label htmlFor="name">Name</label>
                     </Form.Floating>
@@ -123,21 +129,23 @@ fetch('https://artisticglow.herokuapp.com/order', {
                         <Form.Control
                             id="description"
                             type="email"
-                            value={user.email}
+                            value={user?.email}
                             name="customerEmail"
                             onChange={handleOnblur}
                             placeholder="Email"
+                            required
                         />
                         <label htmlFor="description">Email</label>
                     </Form.Floating>
                     <Form.Floating className="mb-3">
                         <Form.Control
-                        required
+                        
                             id="phone"
                             type="number"
                             name="customerNumber"
                             onChange={handleOnblur}
                             placeholder="Enter Your Phone Number"
+                            required
                         />
                         <label htmlFor="phone"> Phone Number</label>
                     </Form.Floating>
@@ -165,6 +173,11 @@ fetch('https://artisticglow.herokuapp.com/order', {
             }
 
 
+                {
+    error && <div className="mt-3"><Alert severity="error">
+  There Are error
+</Alert></div>
+}
                 {
     success && <div className="mt-3"><Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
   Order Place SuccessFully

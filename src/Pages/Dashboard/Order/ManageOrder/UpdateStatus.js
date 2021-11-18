@@ -26,7 +26,7 @@ const UpdateStatus = () => {
     }
  const handleUpdateOrder = e => {
      const url = `https://artisticglow.herokuapp.com/order/${id}`;
-     console.log(url)
+    //  console.log(url)
         fetch(url, {
             method: 'PUT',
             headers: {

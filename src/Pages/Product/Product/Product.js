@@ -28,7 +28,8 @@ useEffect(() => {
 
     return (<div>
         <Header/>
-            <h2 className="mt-2"> All Product</h2>
+        <div className="my-5">
+             <h2 className="mt-2 text-blue fw-bold fs-2 text-uppercase"> All Product</h2>
             <div className="mx-2 mt-4 px-3 ">
     <Container fluid>
               <Row xs={1} md={4} >
@@ -78,6 +79,7 @@ useEffect(() => {
 </Container>
 
             </div>
+           </div>
             <Footer/>
         </div>
     );

@@ -61,7 +61,7 @@ fetch('https://artisticglow.herokuapp.com/rating', {
         })
 
 
-          console.log(rating)
+          // console.log(rating)
 
         e.preventDefault();
        

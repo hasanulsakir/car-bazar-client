@@ -19,6 +19,7 @@ import Product from './Pages/Product/Product/Product';
 import PlaceOrder from './Pages/Dashboard/Order/PlaceOrder/PlaceOrder';
 import UpdateStatus from './Pages/Dashboard/Order/ManageOrder/UpdateStatus';
 import AboutUs from './Pages/Aboutus/AboutUs';
+import PaymentMethod from './Pages/Dashboard/Order/PlaceOrder/PaymentMethod/PaymentMethod';
 function App() {
   return (
     <div className="App">
@@ -55,6 +56,9 @@ function App() {
           </PrivateRoute>
             <PrivateRoute exact path="/updatestatus/:id">
             <UpdateStatus></UpdateStatus>
+          </PrivateRoute>
+            <PrivateRoute exact path="/paymentmethod">
+            <PaymentMethod/>
           </PrivateRoute>
           <LoginRedirect exact path="/login">
             <Login></Login>

@@ -16,7 +16,7 @@ const MakeAdmin = () => {
         
         newAdmin[field] = value;
         setAdmin(newAdmin);
-        console.log(newAdmin)
+        // console.log(newAdmin)
 }
     const handleAdmin = e => {
         const email = admin;
@@ -33,7 +33,7 @@ const MakeAdmin = () => {
                 if (data.modifiedCount) {
                     setSuccess(true);
                     setFailure(false);
-                    console.log(data)
+                    // console.log(data)
                 } else if (data.matchedCount) {
                      setSuccess(false);
                     setFailure(true)

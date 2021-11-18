@@ -10,6 +10,7 @@ import Button from '@restart/ui/esm/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle, faShippingFast, faSmile, faTrashAlt, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import useAuth from '../../../../Hooks/useAuth';
+import { NavLink } from 'react-router-dom';
 
 const ViewOrder = () => {
     const { user } = useAuth();
@@ -29,7 +30,7 @@ const [orders, setOrders] = React.useState([])
 
 
 
-    // delete rating 
+    // delete order 
     const handleDelete = id => {
          const confirm = window.confirm('Are You Confirm, Want To Delete?');
          if (confirm) {
@@ -54,7 +55,9 @@ const [orders, setOrders] = React.useState([])
 
              <div className="mt-4 5rounded-3 py-3 px-2 border-2 mx-auto shadow">
                 
-                <TableContainer component={Paper}>
+          {
+            // eslint-disable-next-line eqeqeq
+            orders.length!=0?   <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -109,6 +112,12 @@ const [orders, setOrders] = React.useState([])
         </TableBody>
       </Table>
     </TableContainer>
+    :
+              <div className="py-5">
+                <h2 className=" mt-4 fs-4 mb-3 text-primary">You Don't Order Any Product Yet</h2>
+                <NavLink to='/product'>  <Button className="border-0 btn-primary fs-5 rounded-2 text-white py-3 px-5">Shop</Button></NavLink>
+    </div>
+               }
               </div>
         </div>
     );

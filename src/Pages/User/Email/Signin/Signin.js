@@ -28,6 +28,7 @@ const Signin = () => {
         LoginUser(signInData.email,signInData.password)
               .then((result) => {
               
+                // eslint-disable-next-line eqeqeq
                 if (result == !error) {
                   alert('Login Success')
                   setSuccess(true);
